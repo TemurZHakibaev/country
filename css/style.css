@@ -1,9 +1,9 @@
-@import url("https://fonts.google.com/specimen/Nunito+Sans");
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
@@ -154,3 +154,31 @@ i {
   font-size: 18px;
   font-weight: 500;
 }
+
+.open {
+  position: absolute;
+  right: 50%;
+  transform: translate(50%, 50%);
+  top: 50px;
+  background-color: #1906063c;
+  transition: 1s;
+  visibility: hidden;
+}
+
+.red {
+  background-color: red;
+}
+
+.map,
+.countryCapital,
+.regionName,
+.countryName,
+.countryPopulation {
+  color: #1f1f1f;
+}
+
+.map {
+  text-decoration: underline;
+}
+
+@import url("https://fonts.google.com/specimen/Nunito+Sans");

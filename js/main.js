@@ -5,8 +5,6 @@ const region = document.querySelectorAll(".region");
 const country = document.querySelector(".country");
 const search = document.querySelector(".search");
 
-const res = "";
-
 async function getCuontry() {
   const URL = await fetch("https://restcountries.com/v3.1/all");
   const res = await URL.json();
@@ -17,8 +15,6 @@ async function getCuontry() {
 }
 
 getCuontry();
-
-console.log(res);
 
 function showCountry(data) {
   const country = document.createElement("div");
@@ -34,7 +30,6 @@ function showCountry(data) {
   <p class="countryPopulation"><strong>Население: </strong>${data.population}</p>
   <p class="regionName"><strong>Регион: </strong>${data.region}</p>
   <p class="countryCapital"><strong>Столица: </strong>${data.capital}</p>
-  <a class="map" href="${data.maps.googleMaps}" target="_blank">карта</a>
   </div>
   </div>
   </a>
@@ -46,33 +41,33 @@ dropDown.addEventListener("click", () => {
   dropElem.classList.toggle("showDropDown");
 });
 
-// const regionName = document.getElementsByClassName("regionName");
-// const countryName = document.getElementsByClassName("countryName");
-// console.log(regionName);
-// region.forEach((element) => {
-//   element.addEventListener("click", () => {
-//     console.log(element);
-//     Array.from(regionName).forEach((elem) => {
-//       console.log(elem.innerText);
-//       if (
-//         elem.innerText.includes(element.innerText) ||
-//         element.innerText == "All"
-//       ) {
-//         elem.parentElement.parentElement.style.display = "grid";
-//       } else {
-//         elem.parentElement.parentElement.style.display = "none";
-//       }
-//     });
-//   });
-// });
+const regionName = document.getElementsByClassName("regionName");
+const countryName = document.getElementsByClassName("countryName");
+console.log(regionName);
+region.forEach((element) => {
+  element.addEventListener("click", () => {
+    console.log(element);
+    Array.from(regionName).forEach((elem) => {
+      console.log(elem.innerText);
+      if (
+        elem.innerText.includes(element.innerText) ||
+        element.innerText == "All"
+      ) {
+        elem.parentElement.parentElement.style.display = "grid";
+      } else {
+        elem.parentElement.parentElement.style.display = "none";
+      }
+    });
+  });
+});
 
-// search.addEventListener("input", () => {
-//   Array.from(countryName).forEach((elem) => {
-//     console.log(elem.innerText);
-//     if (elem.innerText.toLowerCase().includes(search.value.toLowerCase())) {
-//       elem.parentElement.parentElement.style.display = "grid";
-//     } else {
-//       elem.parentElement.parentElement.style.display = "none";
-//     }
-//   });
-// });
+search.addEventListener("input", () => {
+  Array.from(countryName).forEach((elem) => {
+    console.log(elem.innerText);
+    if (elem.innerText.toLowerCase().includes(search.value.toLowerCase())) {
+      elem.parentElement.parentElement.style.display = "grid";
+    } else {
+      elem.parentElement.parentElement.style.display = "none";
+    }
+  });
+});
